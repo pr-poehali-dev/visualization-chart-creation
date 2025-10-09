@@ -1,215 +1,203 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
 
-const teamMembers = [
+const businessCards = [
   {
-    name: "Александр Петров",
-    position: "Генеральный директор",
-    experience: "15 лет",
-    certification: "CFA, MBA",
-    photo: "👨‍💼"
+    name: "Анна Красова",
+    position: "Стилист-колорист",
+    phone: "+7 (999) 123-45-67",
+    email: "anna@beautyservice.ru",
+    specialty: "Окрашивание L'Oréal",
+    gradient: "from-rose-400 to-pink-600"
   },
   {
-    name: "Елена Смирнова",
-    position: "Финансовый директор",
-    experience: "12 лет",
-    certification: "ACCA, CPA",
-    photo: "👩‍💼"
+    name: "Мария Локонова",
+    position: "Топ-стилист",
+    phone: "+7 (999) 234-56-78",
+    email: "maria@beautyservice.ru",
+    specialty: "Эксперт Matrix",
+    gradient: "from-purple-400 to-indigo-600"
   },
   {
-    name: "Михаил Иванов",
-    position: "Директор по рискам",
-    experience: "10 лет",
-    certification: "FRM, CFA",
-    photo: "👨‍💼"
+    name: "Елена Блонд",
+    position: "Мастер-колорист",
+    phone: "+7 (999) 345-67-89",
+    email: "elena@beautyservice.ru",
+    specialty: "Сложное окрашивание",
+    gradient: "from-amber-400 to-orange-600"
   },
   {
-    name: "Ольга Козлова",
-    position: "Главный аналитик",
-    experience: "8 лет",
-    certification: "CFA Level II",
-    photo: "👩‍💼"
+    name: "Ольга Стайл",
+    position: "Старший мастер",
+    phone: "+7 (999) 456-78-90",
+    email: "olga@beautyservice.ru",
+    specialty: "Стрижки & укладки",
+    gradient: "from-emerald-400 to-teal-600"
   }
-];
-
-const performanceData = [
-  { metric: "ROI портфеля", value: "12.5%", trend: "up", change: "+2.3%" },
-  { metric: "Активы под управлением", value: "5.2 млрд ₽", trend: "up", change: "+15%" },
-  { metric: "Количество клиентов", value: "1,240", trend: "up", change: "+8%" },
-  { metric: "Средний чек", value: "4.2 млн ₽", trend: "stable", change: "0%" },
-  { metric: "Уровень удержания", value: "94%", trend: "up", change: "+3%" }
-];
-
-const certifications = [
-  { name: "Лицензия ЦБ РФ", number: "№ 177-06783-100000", icon: "Building2" },
-  { name: "ISO 27001:2013", number: "Информационная безопасность", icon: "Shield" },
-  { name: "SWIFT", number: "Международные переводы", icon: "Globe" },
-  { name: "Страхование АСВ", number: "До 1.4 млн ₽", icon: "BadgeCheck" }
 ];
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <header className="bg-primary text-primary-foreground py-12 px-6">
-        <div className="container mx-auto">
-          <h1 className="text-4xl font-bold mb-2">Наша команда</h1>
-          <p className="text-lg opacity-90">Профессионалы с многолетним опытом в финансовом секторе</p>
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-purple-50 to-pink-50">
+      <header className="bg-white shadow-sm py-8 px-6">
+        <div className="container mx-auto text-center">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-rose-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-3">
+            Beauty Service
+          </h1>
+          <p className="text-lg text-gray-600 mb-4">Салон красоты премиум-класса</p>
+          <div className="flex items-center justify-center gap-6 flex-wrap">
+            <div className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+              <span className="text-2xl">🇫🇷</span>
+              <span>Официальный партнёр L'Oréal</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+              <span className="text-2xl">💎</span>
+              <span>Сертифицированный салон Matrix</span>
+            </div>
+          </div>
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-12">
-        <section className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardHeader className="text-center">
-                  <div className="text-6xl mb-4 bg-gradient-to-br from-primary to-secondary rounded-lg p-6 mx-auto w-32 h-32 flex items-center justify-center">
-                    {member.photo}
+      <main className="container mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-800 mb-3">Наши мастера</h2>
+          <p className="text-gray-600">Профессионалы с международной сертификацией</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {businessCards.map((card, index) => (
+            <div key={index} className="group perspective-1000">
+              <Card className="relative overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 border-gray-100">
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+                
+                <CardContent className="p-0">
+                  <div className={`bg-gradient-to-br ${card.gradient} p-8 text-white relative overflow-hidden`}>
+                    <div className="absolute top-0 right-0 text-8xl opacity-10">✨</div>
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-3xl">
+                          💇‍♀️
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold mb-1">{card.name}</h3>
+                          <p className="text-sm font-medium opacity-90">{card.position}</p>
+                        </div>
+                      </div>
+                      <div className="mt-4 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 inline-block">
+                        <p className="text-sm font-semibold">{card.specialty}</p>
+                      </div>
+                    </div>
                   </div>
-                  <CardTitle className="text-xl mb-2">{member.name}</CardTitle>
-                  <CardDescription className="font-semibold text-base">{member.position}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Icon name="Briefcase" size={16} className="text-muted-foreground" />
-                    <span>Опыт: {member.experience}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Icon name="Award" size={16} className="text-muted-foreground" />
-                    <span>{member.certification}</span>
+
+                  <div className="p-6 space-y-4 bg-white">
+                    <div className="flex items-center gap-3 text-gray-700 hover:text-rose-600 transition-colors cursor-pointer">
+                      <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Icon name="Phone" size={18} className="text-rose-600" />
+                      </div>
+                      <span className="font-medium">{card.phone}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 text-gray-700 hover:text-purple-600 transition-colors cursor-pointer">
+                      <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Icon name="Mail" size={18} className="text-purple-600" />
+                      </div>
+                      <span className="font-medium">{card.email}</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 text-gray-700">
+                      <div className="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Icon name="MapPin" size={18} className="text-pink-600" />
+                      </div>
+                      <span className="text-sm">ул. Красоты, д. 15, Москва</span>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-100">
+                      <Button className={`w-full bg-gradient-to-r ${card.gradient} hover:opacity-90 transition-opacity font-semibold`}>
+                        <Icon name="Calendar" size={18} className="mr-2" />
+                        Записаться на приём
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </section>
+            </div>
+          ))}
+        </div>
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-            <Icon name="TrendingUp" size={32} className="text-primary" />
-            Показатели эффективности
-          </h2>
-          <Card>
-            <CardContent className="p-0">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-muted/50">
-                    <TableHead className="font-bold">Метрика</TableHead>
-                    <TableHead className="font-bold">Значение</TableHead>
-                    <TableHead className="font-bold">Динамика</TableHead>
-                    <TableHead className="font-bold text-right">Изменение</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {performanceData.map((row, index) => (
-                    <TableRow key={index} className="hover:bg-muted/30 transition-colors">
-                      <TableCell className="font-medium">{row.metric}</TableCell>
-                      <TableCell className="text-lg font-bold text-primary">{row.value}</TableCell>
-                      <TableCell>
-                        {row.trend === "up" && (
-                          <Badge variant="default" className="bg-green-100 text-green-800 hover:bg-green-100">
-                            <Icon name="ArrowUp" size={14} className="mr-1" />
-                            Рост
-                          </Badge>
-                        )}
-                        {row.trend === "stable" && (
-                          <Badge variant="secondary">
-                            <Icon name="Minus" size={14} className="mr-1" />
-                            Стабильно
-                          </Badge>
-                        )}
-                      </TableCell>
-                      <TableCell className="text-right font-semibold">{row.change}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-            <Icon name="BarChart3" size={32} className="text-primary" />
-            Визуализация роста активов
-          </h2>
-          <Card>
-            <CardContent className="p-8">
-              <div className="space-y-6">
-                <div className="flex items-end justify-between gap-4 h-64">
-                  {[
-                    { year: "2020", value: 2.1, label: "2.1 млрд" },
-                    { year: "2021", value: 3.2, label: "3.2 млрд" },
-                    { year: "2022", value: 4.1, label: "4.1 млрд" },
-                    { year: "2023", value: 4.5, label: "4.5 млрд" },
-                    { year: "2024", value: 5.2, label: "5.2 млрд" }
-                  ].map((item, index) => (
-                    <div key={index} className="flex-1 flex flex-col items-center gap-2">
-                      <div className="text-xs font-semibold text-muted-foreground mb-1">{item.label}</div>
-                      <div
-                        className="w-full bg-gradient-to-t from-primary to-secondary rounded-t-md transition-all duration-500 hover:opacity-80 cursor-pointer"
-                        style={{ height: `${(item.value / 5.2) * 100}%` }}
-                      ></div>
-                      <div className="text-sm font-bold mt-2">{item.year}</div>
+        <div className="mt-20 max-w-4xl mx-auto">
+          <Card className="bg-gradient-to-br from-gray-900 to-gray-800 text-white border-none shadow-2xl overflow-hidden">
+            <CardContent className="p-10 relative">
+              <div className="absolute top-0 right-0 text-9xl opacity-5">💇‍♀️</div>
+              <div className="relative z-10">
+                <h3 className="text-3xl font-bold mb-4">Beauty Service</h3>
+                <p className="text-lg mb-6 opacity-90">Салон красоты премиум-класса</p>
+                
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Icon name="Phone" size={20} className="text-rose-400" />
+                      <span>+7 (495) 123-45-67</span>
                     </div>
-                  ))}
+                    <div className="flex items-center gap-3">
+                      <Icon name="Mail" size={20} className="text-purple-400" />
+                      <span>info@beautyservice.ru</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Icon name="MapPin" size={20} className="text-pink-400" />
+                      <span>ул. Красоты, д. 15, Москва</span>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <Icon name="Clock" size={20} className="text-amber-400" />
+                      <span>Пн-Вс: 10:00 - 21:00</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Icon name="Instagram" size={20} className="text-orange-400" />
+                      <span>@beautyservice</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Icon name="Globe" size={20} className="text-emerald-400" />
+                      <span>beautyservice.ru</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center text-sm text-muted-foreground">
-                  Динамика роста активов под управлением (млрд ₽)
+
+                <div className="pt-6 border-t border-white/20">
+                  <div className="flex items-center justify-center gap-8 flex-wrap">
+                    <div className="text-center">
+                      <div className="text-4xl mb-2">🇫🇷</div>
+                      <p className="text-sm font-semibold">L'Oréal Partner</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-4xl mb-2">💎</div>
+                      <p className="text-sm font-semibold">Matrix Certified</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-4xl mb-2">⭐</div>
+                      <p className="text-sm font-semibold">5+ лет опыта</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
-        </section>
+        </div>
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-            <Icon name="ShieldCheck" size={32} className="text-primary" />
-            Сертификаты и лицензии
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certifications.map((cert, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:border-primary">
-                <CardContent className="p-6 flex items-start gap-4">
-                  <div className="bg-primary/10 p-4 rounded-lg">
-                    <Icon name={cert.icon as any} size={32} className="text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg mb-1">{cert.name}</h3>
-                    <p className="text-sm text-muted-foreground">{cert.number}</p>
-                  </div>
-                  <Icon name="CheckCircle2" size={24} className="text-green-600" />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <section className="bg-gradient-to-br from-primary to-secondary text-white rounded-lg p-12 text-center">
-          <h2 className="text-3xl font-bold mb-4">Доверьте свои финансы профессионалам</h2>
-          <p className="text-lg mb-8 opacity-90">
-            Более 15 лет опыта, 1,240+ довольных клиентов, 5.2 млрд ₽ активов под управлением
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" variant="secondary" className="font-semibold">
-              <Icon name="Phone" size={20} className="mr-2" />
-              Связаться с нами
-            </Button>
-            <Button size="lg" variant="outline" className="bg-white/10 text-white border-white hover:bg-white hover:text-primary font-semibold">
-              <Icon name="FileText" size={20} className="mr-2" />
-              Скачать презентацию
-            </Button>
-          </div>
-        </section>
+        <div className="mt-16 text-center">
+          <Button size="lg" className="bg-gradient-to-r from-rose-500 via-purple-500 to-pink-500 hover:opacity-90 text-white font-bold px-8 py-6 text-lg shadow-xl">
+            <Icon name="Download" size={24} className="mr-3" />
+            Скачать все визитки PDF
+          </Button>
+        </div>
       </main>
 
-      <footer className="bg-primary text-primary-foreground py-8 px-6 mt-16">
+      <footer className="bg-white mt-20 py-8 px-6 border-t border-gray-200">
         <div className="container mx-auto text-center">
-          <p className="text-sm opacity-75">© 2024 Финансовая компания. Все права защищены.</p>
-          <p className="text-xs opacity-60 mt-2">Лицензия ЦБ РФ № 177-06783-100000</p>
+          <p className="text-gray-600">© 2024 Beauty Service. Все права защищены.</p>
+          <p className="text-sm text-gray-500 mt-2">Официальный партнёр L'Oréal Professional & Matrix</p>
         </div>
       </footer>
     </div>
